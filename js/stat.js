@@ -20,9 +20,8 @@ var renderBar = function (ctx, x, y, width, height, color) {
 };
 
 var getColor = function () {
-  var WHITE = 0;
   var colorBar = Math.round(Math.random() * 10) / 10;
-  colorBar = colorBar === WHITE ? getColor : colorBar;
+  colorBar = colorBar === 0 ? getColor() : colorBar;
   return colorBar;
 };
 
@@ -55,7 +54,7 @@ window.renderStatistics = function (ctx, names, times) {
     renderText(ctx, names[i], CLOUD_X + FONT_GAP + (FONT_GAP + BAR_WIDTH) * i, CLOUD_Y + CLOUD_HEIGHT - GAP * 2, '#000000');
     renderText(ctx, rounds[i], CLOUD_X + FONT_GAP + (FONT_GAP + BAR_WIDTH) * i, CLOUD_Y + CLOUD_HEIGHT - GAP * 5 - barHeight, '#000000');
 
-    names[i] = names[i] === 'Вы' ? colorBar === colorBar : colorBar = 'rgba(0, 0, 255,' + getColor() + ')';
+    names[i] = names[i] === 'Вы' ? colorBar : colorBar = 'rgba(0, 0, 255,' + getColor() + ')';
 
     renderBar(ctx, CLOUD_X + FONT_GAP + (FONT_GAP + BAR_WIDTH) * i, CLOUD_Y + CLOUD_HEIGHT - GAP * 4 - barHeight, BAR_WIDTH, barHeight, colorBar);
   }
