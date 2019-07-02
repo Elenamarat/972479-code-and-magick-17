@@ -20,7 +20,7 @@ var userDialogClose = userDialog.querySelector('.setup-close');
 var userNameInput = userDialog.querySelector('.setup-user-name');
 
 var onPopupEscPress = function (evt) {
-  if (evt.keyCode === ESC_KEYCODE) {
+  if (evt.keyCode === ESC_KEYCODE && document.activeElement !== userNameInput) {
     closePopup();
   }
 };
